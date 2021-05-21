@@ -5,7 +5,7 @@ import requests
 class TestProjecList(object):
     def test_project_list(self):
         host = "http://xfcc-boe.bytedance.net"
-        path = "/project_list"
+        path = "/f100/api/nova_crm/project_list"
         params = {"page_no": 1,
                   "page_size": 15,
                   "timestamp": 1621495086298
@@ -15,5 +15,4 @@ class TestProjecList(object):
         }
         r = requests.request("GET", url=host+path, params=params, headers=headers)
         response = r.json()
-        print(response)
-        #assert response["message"] == "success"
+        assert response["message"] == "success"
